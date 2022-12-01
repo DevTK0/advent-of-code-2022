@@ -1,0 +1,24 @@
+{
+  "name": "adventofcode",
+  "version": "1.0.0",
+  "description": "Run the solutions with the following command ``` npx ts-node solutions/day1_part2.ts ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sample": "npm run start -- solutions/day1_part1.ts",
+    "start": "npx ts-node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevTK0/advent-of-code-2022.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DevTK0/advent-of-code-2022/issues"
+  },
+  "homepage": "https://github.com/DevTK0/advent-of-code-2022#readme",
+  "dependencies": {
+    "ts-node": "^10.9.1"
+  }
+}
