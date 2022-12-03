@@ -1,47 +1,33 @@
 import { input } from "../inputs/day3";
 
-// const input = `
-// vJrwpWtwJgWrhcsFMMfFFhFp
-// jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
-// PmmdzqPrVvPwwTWBwg
-// wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
-// ttgJtRGJQctTZtZT
-// CrZsJsPPZsGzwwsLwLmpwMDw
-// `;
-
-const rucksacks = input.split("\n");
+const rucksacks = input.split("\n").filter((x) => x !== "");
 let total = 0;
-for (let i = 0; i < rucksacks.length; i++) {
+for (let i = 0; i < rucksacks.length; i += 3) {
     if (rucksacks[i] === "") {
     } else {
-        const compartment1 = rucksacks[i].substring(0, rucksacks[i].length / 2);
-        const compartment2 = rucksacks[i].substring(
-            rucksacks[i].length / 2,
-            rucksacks[i].length
-        );
-
-        total += diff(compartment1, compartment2);
+        total += diff(rucksacks[i], rucksacks[i + 1], rucksacks[i + 2]);
     }
 }
 
 console.log(total);
 
-function diff(compartment1, compartment2) {
-    const map = new Map();
-    for (let i = 0; i < compartment1.length; i++) {
-        const count = map.get(compartment1[i]) | 0;
-        map.set(compartment1[i], count + 1);
+function diff(sack1, sack2, sack3) {
+    const map1 = new Map();
+    const map2 = new Map();
+    for (let i = 0; i < sack1.length; i++) {
+        map1.set(sack1[i], true);
     }
-    let sum = 0;
-    for (let i = 0; i < compartment2.length; i++) {
-        const ch = compartment2[i];
-        if (map.has(ch)) {
-            sum += priority(ch);
-            map.delete(ch);
-        }
+    for (let i = 0; i < sack2.length; i++) {
+        map2.set(sack2[i], true);
     }
 
-    return sum;
+    for (let i = 0; i < sack3.length; i++) {
+        const ch = sack3[i];
+        if (map1.has(ch) && map2.has(ch)) {
+            return priority(ch);
+        }
+    }
+    return 0;
 }
 
 function priority(ch: string) {

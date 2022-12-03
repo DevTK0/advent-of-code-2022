@@ -1,14 +1,5 @@
 import { input } from "../inputs/day3";
 
-// const input = `
-// vJrwpWtwJgWrhcsFMMfFFhFp
-// jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
-// PmmdzqPrVvPwwTWBwg
-// wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
-// ttgJtRGJQctTZtZT
-// CrZsJsPPZsGzwwsLwLmpwMDw
-// `;
-
 const rucksacks = input.split("\n");
 let total = 0;
 for (let i = 0; i < rucksacks.length; i++) {
