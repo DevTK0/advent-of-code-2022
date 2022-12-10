@@ -63,9 +63,8 @@ input.split("\n").forEach((line) => {
     }
 });
 
-const additional = 70000000 - directories.get("/");
-
-let min = 70000000;
+const additional = 30000000 - (70000000 - directories.get("/"));
+let min = 30000000;
 
 directories.forEach((size, dir) => {
     if (size >= additional) {
