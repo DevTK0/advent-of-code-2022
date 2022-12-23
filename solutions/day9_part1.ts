@@ -82,7 +82,6 @@ let count = 0;
 for (const [x, maps] of visited) {
     for (const [y, value] of maps) {
         if (value >= 1) {
-            console.log(x, y, value);
             count++;
         }
     }
